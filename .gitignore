@@ -1,0 +1,10 @@
+.idea/*
+.env
+.vs/
+.vscode/*
+target/*
+.mvn
+mvnw.cmd
+HELP.md
+mvnw
+.gitattributes

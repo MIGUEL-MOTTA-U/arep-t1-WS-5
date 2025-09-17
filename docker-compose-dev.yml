@@ -1,0 +1,12 @@
+services:
+  db-mysql:
+    image: mysql:9.4.0
+    ports:
+      - "3306:3306"
+    networks:
+      - db-tier
+    #configs:
+
+
+volumes:
+  # TODO
