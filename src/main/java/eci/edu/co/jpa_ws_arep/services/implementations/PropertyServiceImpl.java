@@ -35,14 +35,7 @@ public class PropertyServiceImpl implements PropertyService {
     public Page<PropertyOutDTO> getPropertyOutDTOs(Integer page, Integer size, PropertyFilters propertyFilter) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("name").descending());
         Page<PropertyEntity> propertyEntities = propertyRepository.findByFilters(
-                propertyFilter.getAddress(),
-                propertyFilter.getCity(),
-                propertyFilter.getMinPrice(),
-                propertyFilter.getMaxPrice(),
-                propertyFilter.getType(),
-                propertyFilter.getMinAreaSquareMeters(),
-                propertyFilter.getMaxAreaSquareMeters(),
-                propertyFilter.getName(),
+                propertyFilter,
                 pageable
         );
         return propertyEntities.map(PropertyOutDTO::new);
