@@ -1,12 +1,31 @@
 services:
   db-mysql:
-    image: mysql:9.4.0
+    image: mysql:8.4.6
     ports:
       - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MY_DB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MY_DATABASE}
+      - MYSQL_USER=${MY_DB_USER}
+      - MYSQL_PASSWORD=${MY_DB_USER_PASSWORD}
     networks:
       - db-tier
-    #configs:
+    volumes:
+      - db-data:/var/lib/mysql
+      # Opcional: configuración personalizada
+      # - ./mysql.conf:/etc/mysql/conf.d/mysql.conf:ro
+    restart: unless-stopped
+    # Opcional: healthcheck
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
 
+networks:
+  db-tier:
+    driver: bridge
 
 volumes:
-  # TODO
+  db-data:
+    # Opcional: especificar driver
+    driver: local
