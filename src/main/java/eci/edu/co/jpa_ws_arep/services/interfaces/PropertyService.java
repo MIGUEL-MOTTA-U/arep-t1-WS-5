@@ -12,4 +12,5 @@ public interface PropertyService {
     PropertyOutDTO save(PropertyInDTO propertyInDTO);
     void delete(String id);
     PropertyEntity update(String id, PropertyInDTO propertyInDTO);
+    Boolean existsById(String id);
 }

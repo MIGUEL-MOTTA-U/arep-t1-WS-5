@@ -52,10 +52,9 @@ public class PropertyController {
     @PutMapping("/properties/{id}")
     public ResponseEntity<PropertyOutDTO> updateProperty(@PathVariable String id, @RequestBody
     PropertyInDTO propertyInDTO) throws ErrorCustomController {
-        PropertyOutDTO updatedProperty = propertyService.getPropertyOutDTO(id);
-        if (updatedProperty == null) throw new ErrorCustomController("Property:" + id + " not found", ErrorCustomController.NOT_FOUND);
-        propertyService.save(propertyInDTO);
-        return ResponseEntity.ok(updatedProperty);
+        Boolean exists = propertyService.existsById(id);
+        if (exists) throw new ErrorCustomController("Property:" + id + " not found", ErrorCustomController.NOT_FOUND);
+        return ResponseEntity.ok(new PropertyOutDTO(propertyService.update(id, propertyInDTO)));
     }
 
     @DeleteMapping("/properties/{id}")

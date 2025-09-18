@@ -63,4 +63,9 @@ public class PropertyServiceImpl implements PropertyService {
         }
         return null;
     }
+
+    @Override
+    public Boolean existsById(String id) {
+        return propertyRepository.existsById(id);
+    }
 }
