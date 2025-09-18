@@ -8,7 +8,6 @@ import eci.edu.co.jpa_ws_arep.models.types.PropertyType;
 import eci.edu.co.jpa_ws_arep.services.interfaces.PropertyService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,16 +20,16 @@ public class PropertyController {
 
     @GetMapping("/properties")
     public ResponseEntity<Page<PropertyOutDTO>> getAllProperties(
-           @Param("minPrice") Double minPrice,
-           @Param("maxPrice") Double maxPrice,
-           @Param("city") String city,
-           @Param("name") String name,
-           @Param("address") String address,
-           @Param("minAreaSquareMeters") Double minAreaSquareMeters,
-           @Param("maxAreaSquareMeters") Double maxAreaSquareMeters,
-           @Param("type") PropertyType type,
-           @Param("page") Integer page,
-           @Param("size") Integer size) throws ErrorCustomController {
+           @RequestParam(value="minPrice", required = false) Double minPrice,
+           @RequestParam(value="maxPrice", required = false) Double maxPrice,
+           @RequestParam(value="city", required = false) String city,
+           @RequestParam(value="name", required = false) String name,
+           @RequestParam(value="address", required = false) String address,
+           @RequestParam(value="minAreaSquareMeters", required = false) Double minAreaSquareMeters,
+           @RequestParam(value="maxAreaSquareMeters", required = false) Double maxAreaSquareMeters,
+           @RequestParam(value="type", required = false) PropertyType type,
+           @RequestParam(value="page", defaultValue="0") Integer page,
+           @RequestParam(value="size", defaultValue="10") Integer size) throws ErrorCustomController {
         validateParams(page, size, minPrice, maxPrice, minAreaSquareMeters, maxAreaSquareMeters);
         Page<PropertyOutDTO> result = propertyService.getPropertyOutDTOs(page, size, new PropertyFilters(minPrice, maxPrice, city, name, address, minAreaSquareMeters, maxAreaSquareMeters, type));
         return ResponseEntity.ok(result);
