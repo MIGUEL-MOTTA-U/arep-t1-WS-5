@@ -53,6 +53,7 @@ public class PropertyController {
     PropertyInDTO propertyInDTO) throws ErrorCustomController {
         Boolean exists = propertyService.existsById(id);
         if (exists) throw new ErrorCustomController("Property:" + id + " not found", ErrorCustomController.NOT_FOUND);
+        validatePropertyIn(propertyInDTO);
         return ResponseEntity.ok(new PropertyOutDTO(propertyService.update(id, propertyInDTO)));
     }
 
