@@ -8,6 +8,7 @@ import eci.edu.co.jpa_ws_arep.models.types.PropertyType;
 import eci.edu.co.jpa_ws_arep.services.interfaces.PropertyService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -58,9 +59,9 @@ public class PropertyController {
     }
 
     @DeleteMapping("/properties/{id}")
-    public ResponseEntity<Void> deleteProperty(@PathVariable String id) {
+    public ResponseEntity<String> deleteProperty(@PathVariable String id) {
         propertyService.delete(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Property with id " + id + " deleted successfully.");
     }
 
     private void validateParams(Integer page, Integer size, Double minPrice, Double maxPrice, Double minAreaSquareMeters, Double maxAreaSquareMeters) throws ErrorCustomController {

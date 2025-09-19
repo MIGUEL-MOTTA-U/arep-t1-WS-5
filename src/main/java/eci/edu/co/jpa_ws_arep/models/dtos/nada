@@ -1,0 +1,17 @@
++ getMinPrice(): Double
++ setMinPrice(Double): void
++ getMaxPrice(): Double
++ setMaxPrice(Double): void
++ getCity(): String
++ setCity(String): void
++ getName(): String
++ setName(String): void
++ getAddress(): String
++ setAddress(String): void
++ getMinAreaSquareMeters(): Double
++ setMinAreaSquareMeters(Double): void
++ getMaxAreaSquareMeters(): Double
++ setMaxAreaSquareMeters(Double): void
++ getType(): PropertyType
++ setType(PropertyType): void
++ PropertyFilters(Double, Double, String, String, String, Double, Double, PropertyType): void

@@ -2,14 +2,15 @@
 ### Miguel Motta
 
 ## Contents
-- [Introduction](#introduction)
+- [Project Summary](#project-summary)
 - [Requirements](#requirements)
+- [Class Design](#class-design)
 - [Setup](#setup)
 - [API Endpoints](#api-endpoints)
 - [Deployment](#deployment)
 - [Video demonstration](#video-demonstration)
 
-## Introduction
+## Project Summary
 
 This project is a simple Spring Boot application that manages a properties system using JPA 
 (Java Persistence API). It allows you to perform CRUD (Create, Read, Update, Delete) 
@@ -24,6 +25,19 @@ operations on properties.
 - Docker (optional, for containerization)
 - Postman (optional, for API testing)
 - Lombok (optional, for reducing boilerplate code)
+
+
+## System Architecture
+
+
+
+## Class Design
+
+![](assets/class-diagram-arep-05.drawio.png)
+
+[See the diagram on draw.io](https://drive.google.com/file/d/1c-YKosibjRvDxHWE9W2LjTsW9SHU5ynl/view?usp=sharing)
+
+[See the Image](assets/class-diagram-arep-05.drawio.png)
 
 ## Setup
 1. Clone the repository:
