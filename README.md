@@ -62,6 +62,10 @@ I made a configuration to use a `.env` file to manage environment variables, you
     MY_DATABASE={my_database_name}
     MY_DB_USER={my_db_user}
     MY_DB_USER_PASSWORD={my_db_user_password}
+    CORS_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
+    CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,OPTIONS
+    CORS_ALLOWED_HEADERS=*
+    CORS_ALLOW_CREDENTIALS=true
 ````
 3. Run docker-compose to set up the database (if using Docker):
 ```bash
