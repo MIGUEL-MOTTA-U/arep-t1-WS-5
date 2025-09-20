@@ -4,6 +4,7 @@
 ## Contents
 - [Project Summary](#project-summary)
 - [Requirements](#requirements)
+- [System Architecture](#system-architecture)
 - [Class Design](#class-design)
 - [Setup](#setup)
 - [API Endpoints](#api-endpoints)
@@ -29,7 +30,7 @@ operations on properties.
 
 ## System Architecture
 
-
+![](assets/class-diagram-arep-05-Architecture%20Diagram.drawio.png)
 
 ## Class Design
 
@@ -175,8 +176,89 @@ Example input dto:
 
 ## Deployment
 
+### First I created de EC2 instances in AWS.
+
+MySQL Database:
+
+![](assets/mysql/img.png)
+
+Start Service:
+
+![](assets/mysql/img_1.png)
+
+Set up configuration:
+
+![](assets/mysql/img_2.png)
+
+![](assets/mysql/img_3.png)
+
+![](assets/mysql/img_4.png)
+
+Set up security group:
+
+![](assets/mysql/img_5.png)
+
+Create User and Database:
+
+![](assets/mysql/img_6.png)
+
+![](assets/mysql/img_7.png)
+
+![](assets/mysql/img_8.png)
+
+### Then I created the EC2 instance for the Spring Boot application.
+
+![](assets/springboot/img.png)
+
+Download mysql client to connect to the remote database:
+
+![](assets/springboot/img_1.png)
+
+![](assets/springboot/img_2.png)
+
+Set up database connection in application.properties or .env: file:
+
+![](assets/springboot/img_3.png)
+
+Then run the application:
+
+![](assets/springboot/img_4.png)
+
+![](assets/springboot/img_5.png)
+
+![](assets/springboot/img_6.png)
+
+Set up security group to allow HTTP traffic:
+
+![](assets/springboot/img_7.png)
+
+Test the application using Postman or curl:
+
+![](assets/springboot/img_8.png)
+
+![](assets/springboot/img_9.png)
+
+![](assets/springboot/img_10.png)
+
+### Finally, I set up a ReactJS client machine to test the API.
+
+The client repository is [here](https://github.com/MIGUEL-MOTTA-U/arep-t1-WS-5-client).
+
+![](assets/reactjs/img.png)
+
+Set up security group to allow HTTP traffic:
+
+![](assets/reactjs/img_1.png)
+
+![](assets/reactjs/img_2.png)
+
+![](assets/reactjs/img_3.png)
+
+![](assets/reactjs/img_4.png)
+
+![](assets/reactjs/img_5.png)
 
 
 ## Video demonstration
 
-[Video](https://www.youtube.com/)
+[Video](https://youtu.be/V8PHX8dJSSw)
